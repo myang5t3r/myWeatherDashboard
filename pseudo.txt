@@ -1,0 +1,8 @@
+myWeather Dashboard Project
+
+Create html layout with bootstrap
+    -must have search bar to search for other cities
+    -must have area for search history
+    -must have current weather conditons as main
+    -must have 5 day forecast 
+
