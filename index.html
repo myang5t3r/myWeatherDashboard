@@ -11,36 +11,63 @@
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-dark bg-primary justify-content-center col-12 p-4" >
-                <h1>myWeather Dashboard</h1>
-              </nav>
+            <div class="col-12 p-1 text-center bg-primary">
+                <h1 class=>myWeather Dashboard</h1>
+                <p id="currentDay"></p>
+            </div>
         </header>
-        <section class=" container p-0">
+        <section class="container fluid">
             <div class="row" id="searchBox">
-                <div class="col-3 d-grid gap-3 align-content-center">
-                    <label for="formGroupExampleInput" class="form-label fs-1">Search for a City: </label>
-                    <input type="text" class="form-control fs-4" id="formGroupExampleInput" placeholder="Denver">
+                <div class="col-3 d-grid gap-3 align-content-center ">
+                    <label for="formGroupExampleInput" class="form-label fs-2">Search for a City: </label>
+                    <input type="text" class="form-control-lg fs-4" id="formGroupExampleInput" placeholder="Denver">
                     <button class="btn btn-primary fs-4" type="submit">Search</button>
+                <div class="fs-2">Search History:</div>
                 </div>
-                <div class="col-9 ps-4 pt-4">
-                    <div class="card" style="width:100%;">
+                <div class="col-9 ps-0 pt-4">
+                    <div class="card p-4" style="border:1px solid black; background-color:lightgray">
                         <div class="card-body">
                           <h5 class="card-title">Card title</h5>
                           <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                       </div>
+                      <div class="fs-3 p-0">Future Forecast:</div>
                       <div class="row">
-                        <div class="col-3 p-4">
-                            <div class="card" style="width: 100%;">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" >
                                 <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3 p-4">
-                            <div class="card" style="width: 100%;">
+                        <div class="col">
+                            <div class="card" >
+                                <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" >
+                                <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" >
                                 <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -51,9 +78,10 @@
                 </div>
             </div>
         </section>
-   
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
     </script>
+    <script src="/assests/js/script.js"></script>
 
     </body> 
 </html>
