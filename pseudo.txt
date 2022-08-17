@@ -8,9 +8,17 @@ Create html layout with bootstrap
 
 
 Use Weather API to get weather
- -https://api.weatherbit.io/v2.0/current?city=denver&key=0e41fc349a61461fa2f60b6a3f8511d2
+
 
  - api must return weather data of city from search
     -need to get input text from element
     -need event handler for search button
     -Need two api - current weather and -5 day forecast
+         Current -https://api.weatherbit.io/v2.0/current?city=denver&key=0e41fc349a61461fa2f60b6a3f8511d2
+         
+         16 Day -https://api.weatherbit.io/v2.0/forecast/daily?city=Denver&key=0e41fc349a61461fa2f60b6a3f8511d2`
+
+Add UV index with color background
+
+UV index
+https://www.openuv.io/uvindex

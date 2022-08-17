@@ -4,7 +4,7 @@ var rootEL = $("#root");
 var dateEl = $("#currentDay");
 var searchInput = $("#weatherSearch");
 var searchBtn = $("button")
-
+var curWeatherData = $(".currentWeather")
 
 ////////////////    Functions   /////////////////////////
 // Function to display time
@@ -44,11 +44,25 @@ function getWeather(str){
       })
 }
 
-
 // Function to display weather to html
 function popWeather(data){
-    console.log(data[0].city_name)
-}
+    // Convert C to F
+    var tempF = (data[0].temp*9/5)+32;
+    // console.log()
+    // Construct array of sting to insert into html
+    var weatherArray = [
+        `${data[0].city_name}`,
+        `Temperature: ${tempF} F`,
+        `Wind: ${data[0].wind_spd} m/s`,
+        `Relative Humidity: ${data[0].rh} %`,
+        `UV: ${data[0].uv}`
+    ];
+    console.log(curWeatherData);
+    // loop through array and insert into dom
+    for (var i=0;i<weatherArray.length;i++){
+        curWeatherData.eq(i).text(weatherArray[i]);
+    }
+};
 
 // Function to display forecast to html
 function popForcast(data){
