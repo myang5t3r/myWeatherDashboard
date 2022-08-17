@@ -37,11 +37,10 @@ function getWeather(str){
 
       // API Calls with catch block   
     $.get(url2, function(res){
-        // popForecast(res.data)
+        popForecast(res.data)
       })
       .catch(e =>{
-        console.log(e.status)
-        alert(`API Error Status : ${e.status} - Try again`)
+        console.log(e.status, "forcast call")
       })
 }
 
@@ -56,8 +55,9 @@ function popWeather(data){
         `Temperature: ${tempF} F`,
         `Wind: ${data[0].wind_spd} m/s`,
         `Relative Humidity: ${data[0].rh} %`,
-        `UV: ${data[0].uv}`
+        `UV Index: ${data[0].uv}`
     ];
+
     // loop through array and insert into dom
     for (var i=0;i<weatherArray.length;i++){
         curWeatherData.eq(i).text(weatherArray[i]);
@@ -65,11 +65,22 @@ function popWeather(data){
     // Change image of weather icon
     var icon =`/assests/icons/${data[0].weather.icon}.png`
     curIcon.attr("src", icon)
+
+    // Change uv index background color based on
+    if(data[0].uv <=2){
+      curWeatherData.eq(4).attr("style", "background-color: lightgreen");
+    }else if(data[0].uv <=5){
+      curWeatherData.eq(4).attr("style", "background-color: yellow");
+    }else if(data[0].uv <=7){
+      curWeatherData.eq(4).attr("style", "background-color: orange");
+    }else if(data[0].uv <=7){
+      curWeatherData.eq(4).attr("style", "background-color: red");
+    } 
 };
 
 // Function to display forecast to html
-function popForcast(data){
-
+function popForecast(data){
+  console.log(data)
 }
 
 
@@ -77,6 +88,7 @@ function popForcast(data){
 // Event handler for search button 
 searchBtn.on("click", function(){
     var str = searchInput.val().trim();
+    searchInput.val("")
     getWeather(str)
 });
 

@@ -19,6 +19,3 @@ Use Weather API to get weather
          16 Day -https://api.weatherbit.io/v2.0/forecast/daily?city=Denver&key=0e41fc349a61461fa2f60b6a3f8511d2`
 
 Add UV index with color background
-
-UV index
-https://www.openuv.io/uvindex
