@@ -5,6 +5,7 @@ var dateEl = $("#currentDay");
 var searchInput = $("#weatherSearch");
 var searchBtn = $("button")
 var curWeatherData = $(".currentWeather")
+var curIcon = $(".curWeatherIcon")
 
 ////////////////    Functions   /////////////////////////
 // Function to display time
@@ -14,7 +15,7 @@ function time() {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric',  minute:'numeric', second:'numeric'}
     timeNow = d.toLocaleDateString(undefined, options)
     dateEl.text(timeNow);
-    rootEL.append(dateEl)
+    // rootEL.append(dateEl)
 }
 
 // REST API call for current weather and forecast
@@ -48,26 +49,29 @@ function getWeather(str){
 function popWeather(data){
     // Convert C to F
     var tempF = (data[0].temp*9/5)+32;
-    // console.log()
+    var date = data[0].datetime.slice(0,10);
     // Construct array of sting to insert into html
     var weatherArray = [
-        `${data[0].city_name}`,
+        `${data[0].city_name} ${date}`,
         `Temperature: ${tempF} F`,
         `Wind: ${data[0].wind_spd} m/s`,
         `Relative Humidity: ${data[0].rh} %`,
         `UV: ${data[0].uv}`
     ];
-    console.log(curWeatherData);
     // loop through array and insert into dom
     for (var i=0;i<weatherArray.length;i++){
         curWeatherData.eq(i).text(weatherArray[i]);
     }
+    // Change image of weather icon
+    var icon =`/assests/icons/${data[0].weather.icon}.png`
+    curIcon.attr("src", icon)
 };
 
 // Function to display forecast to html
 function popForcast(data){
 
 }
+
 
 //////////////// Event Handlers     /////////////////////////////////////
 // Event handler for search button 
