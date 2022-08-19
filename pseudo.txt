@@ -11,11 +11,17 @@ Use Weather API to get weather
 
 
  - api must return weather data of city from search
-    -need to get input text from element
-    -need event handler for search button
+    -need to get input text from element (DONE)
+    -need event handler for search button (DONE)
     -Need two api - current weather and -5 day forecast
-         Current -https://api.weatherbit.io/v2.0/current?city=denver&key=0e41fc349a61461fa2f60b6a3f8511d2
+         Current -https://api.weatherbit.io/v2.0/current?city=denver&key=0e41fc349a61461fa2f60b6a3f8511d2 (DONE)
          
          16 Day -https://api.weatherbit.io/v2.0/forecast/daily?city=Denver&key=0e41fc349a61461fa2f60b6a3f8511d2`
 
-Add UV index with color background
+Add UV index with color background (Done)
+
+Build 5 day forecast with api, 5 divs in each card
+    -date field
+    -icon image
+    -wind
+    -humidify 

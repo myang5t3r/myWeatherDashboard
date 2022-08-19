@@ -1,4 +1,6 @@
-/* ID Selectors
-#searchBox {
+.forcastTitle {
     font-size: 1em;
-} */
+}
+.forcastBody {
+    font-size: .75em;
+}

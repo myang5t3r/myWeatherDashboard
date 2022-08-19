@@ -26,9 +26,10 @@
                 <button class="btn btn-primary fs-4 w-100 mt-3" type="submit">Search</button>
                 </div>
                 <div class="col-sm-12 col-md-9  ps-0 pt-4">
-                    <div class="card p-4" style="border:1px solid black; background-color:lightgray">
+                    <div class="card p-4" style="border:1px solid black;">
                         <div class="card-body w-25" style="position: relative;">
-                        <img class ="curWeatherIcon" src="/assests/icons/a01n.png" alt="Weather icons"></div>    
+                        <img class ="curWeatherIcon" src="/assests/icons/a01n.png" alt="Weather icons">
+                    </div>    
                         <div class="card-body">
                           <h5 class="card-title currentWeather w-50 fs-1">City</h5>
                           <p class="card-text currentWeather w-50">Temperature:</p>
@@ -39,53 +40,27 @@
                     </div>
                     <div class="fs-3 p-0">Future Forecast:</div>
                     <div class="row">
-                      <div class="col">
+                      <div class="col-sm-12 col-md-2">
                           <div class="card">
+                            <div class="card" style="border:1px solid black;">
+                                <div class="card-body p-0 m-0" style="position: relative;">
+                                <img class ="curWeatherIcon" src="/assests/icons/a01n.png" alt="Weather icons">
+                            </div>  
                               <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title.</p>
+                                <h5 class="card-title forcastTitle pb-1">Date:</h5>
+                                <p class="card-text forcastBody">Temp:</p>
+                                <p class="card-text forcastBody">Wind:</p>
+                                <p class="card-text forcastBody">Hum:</p>
                               </div>
                           </div>
-                      </div>
-                      <div class="col">
-                          <div class="card" >
-                              <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col">
-                          <div class="card" >
-                              <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col">
-                          <div class="card" >
-                              <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col">
-                          <div class="card" >
-                              <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              </div>
-                          </div>
-                      </div>    
+                      </div>           
                 </div>
             </div>
         </section>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
     </script>
-    <script src="/assests/js/script.js"></script>
+    <script src="assests/js/script.js"></script>
 
     </body> 
 </html>
