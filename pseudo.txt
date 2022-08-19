@@ -27,5 +27,7 @@ Search history
     -use local storage to store name of city (DONE)
     -add condition for local storage, not duplicates (DONE)
     - Refactor saveHistory to check if button was populated (DONE)
-    -When clicking on button of city show weather/forecast 
-        -create event handler for search history buttons
+    -When clicking on button of city show weather/forecast (DONE)
+        -create event handler for search history buttons (DONE)
+
+Readme - (DONE)
