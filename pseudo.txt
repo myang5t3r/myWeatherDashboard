@@ -24,7 +24,8 @@ Build 5 day forecast with api, 5 divs in each card (DONE)
     -humidify   (DONE)
 
 Search history 
-    -use local storage to store name of city 
-    -populate city as a button
-    -when clicking on button of city show weather/forecast 
-        -create event handler for seach history buttons
+    -use local storage to store name of city (DONE)
+    -add condition for local storage, not duplicates (DONE)
+    - Refactor saveHistory to check if button was populated (DONE)
+    -When clicking on button of city show weather/forecast 
+        -create event handler for search history buttons

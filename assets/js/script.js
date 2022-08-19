@@ -8,6 +8,9 @@ var curWeatherData = $(".currentWeather")
 var curIcon = $(".curWeatherIcon")
 var forecastCard = $(".forecast")
 var forecastIcon = $(".forecastIcon")
+var newBtnParent = $(".search-history")
+
+
 
 ////////////////    Functions   /////////////////////////
 // Function to display time
@@ -29,7 +32,6 @@ function getWeather(str){
 
     // API Calls with catch block   
     $.get(url1, function(res){
-        // console.log(data.data)
         popWeather(res.data)
       })
       .catch(e =>{
@@ -65,7 +67,7 @@ function popWeather(data){
         curWeatherData.eq(i).text(weatherArray[i]);
     }
     // Change image of weather icon
-    var icon =`/assets/icons/${data[0].weather.icon}.png`
+    var icon =`assets/icons/${data[0].weather.icon}.png`
     curIcon.attr("src", icon)
 
     // Change uv index background color based on
@@ -77,7 +79,10 @@ function popWeather(data){
       curWeatherData.eq(4).attr("style", "background-color: orange");
     }else if(data[0].uv <=7){
       curWeatherData.eq(4).attr("style", "background-color: red");
-    } 
+    }
+
+  // Run function save city here to use name from api call
+  saveCity(data[0].city_name);   
 };
 
 // Function to display forecast to html
@@ -121,13 +126,14 @@ function popForecast(data){
 }
 
 // Function for local storage
-function saveCity(){
+function saveCity(city){
+  // console.log(city)
   // Save City name to local storage
   if(localStorage.getItem("city")===null){
     // create array to store objects
     var events=[];
     // get the text value inside of textarea
-    var str = searchInput.val().trim();
+    var str = city;
     // create object of event data and index 
     // push city name into array
     events.push(str);
@@ -137,24 +143,62 @@ function saveCity(){
     // Pull array from local storage
     events = JSON.parse(localStorage.getItem("city"));
     // get the text value inside of textarea
-    var str = searchInput.val().trim();
+    var str = city;
+    // Check if city is already in array
+    if(events.includes(city)){
+      return;
+    }else{
     // push city name into array
-    events.push(str);
-    // Save events array to local storage
-    localStorage.setItem("city", JSON.stringify(events));
+      events.push(str);
+      // Save events array to local storage
+      localStorage.setItem("city", JSON.stringify(events));
+    }
 }
+// to display city in search history
+  searchHistory()
 }
+
+// Function to create button element of cities that have been searched
+function searchHistory(){
+  if(localStorage.getItem("city")===null){
+    return
+  }
+  else{
+    // Pull array from local storage
+    cityNames = JSON.parse(localStorage.getItem("city"));
+    // Remove buttons from dom
+    newBtnParent.empty();
+    if (cityNames != null) {
+      for (var i = 0; i < 5; i++) {
+        if(cityNames[i] != null ){
+          var newBtn = $("<button>")
+          newBtn.attr("class", "btn btn-secondary fs-4 w-100 mt-3")
+          newBtn.attr("id", i )
+          newBtn.text(cityNames[i])
+          newBtnParent.append(newBtn) 
+        }
+      }
+    }
+  }
+}  
 
 //////////////// Event Handlers     /////////////////////////////////////
 // Event handler for search button 
 searchBtn.on("click", function(){
     var str = searchInput.val().trim();
-    saveCity();
     getWeather(str);
     searchInput.val("");
 });
 
+// Event handler for history buttons
+newBtnParent.on("click", function(e){
+  if(e.target && e.target.matches("button.btn")){
+    console.log("Button", e.target, "was pressed")
+  }
+})
+
 ////////////////    Function Execute at launch   ///////////////////////////// 
 // Call setInterval method to display the time- call back function!!
 setInterval(time,100)
-// getWeather()
+// Call searchHistory function
+searchHistory()
