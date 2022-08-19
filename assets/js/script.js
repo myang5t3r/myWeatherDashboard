@@ -192,9 +192,8 @@ searchBtn.on("click", function(){
 
 // Event handler for history buttons
 newBtnParent.on("click", function(e){
-  if(e.target && e.target.matches("button.btn")){
-    console.log("Button", e.target, "was pressed")
-  }
+  // console.log(e.target.textContent)
+  getWeather(e.target.textContent)
 })
 
 ////////////////    Function Execute at launch   ///////////////////////////// 
