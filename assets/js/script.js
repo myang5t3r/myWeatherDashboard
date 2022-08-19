@@ -3,7 +3,7 @@
 var rootEL = $("#root");
 var dateEl = $("#currentDay");
 var searchInput = $("#weatherSearch");
-var searchBtn = $("button")
+var searchBtn = $("#search")
 var curWeatherData = $(".currentWeather")
 var curIcon = $(".curWeatherIcon")
 var forecastCard = $(".forecast")
@@ -120,13 +120,38 @@ function popForecast(data){
 
 }
 
+// Function for local storage
+function saveCity(){
+  // Save City name to local storage
+  if(localStorage.getItem("city")===null){
+    // create array to store objects
+    var events=[];
+    // get the text value inside of textarea
+    var str = searchInput.val().trim();
+    // create object of event data and index 
+    // push city name into array
+    events.push(str);
+    // Save events array to local storage
+    localStorage.setItem("city", JSON.stringify(events));
+}else{
+    // Pull array from local storage
+    events = JSON.parse(localStorage.getItem("city"));
+    // get the text value inside of textarea
+    var str = searchInput.val().trim();
+    // push city name into array
+    events.push(str);
+    // Save events array to local storage
+    localStorage.setItem("city", JSON.stringify(events));
+}
+}
 
 //////////////// Event Handlers     /////////////////////////////////////
 // Event handler for search button 
 searchBtn.on("click", function(){
     var str = searchInput.val().trim();
-    searchInput.val("")
-    getWeather(str)
+    saveCity();
+    getWeather(str);
+    searchInput.val("");
 });
 
 ////////////////    Function Execute at launch   ///////////////////////////// 
