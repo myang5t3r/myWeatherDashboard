@@ -6,6 +6,8 @@ var searchInput = $("#weatherSearch");
 var searchBtn = $("button")
 var curWeatherData = $(".currentWeather")
 var curIcon = $(".curWeatherIcon")
+var forecastCard = $(".forecast")
+var forecastIcon = $(".forecastIcon")
 
 ////////////////    Functions   /////////////////////////
 // Function to display time
@@ -63,7 +65,7 @@ function popWeather(data){
         curWeatherData.eq(i).text(weatherArray[i]);
     }
     // Change image of weather icon
-    var icon =`/assests/icons/${data[0].weather.icon}.png`
+    var icon =`/assets/icons/${data[0].weather.icon}.png`
     curIcon.attr("src", icon)
 
     // Change uv index background color based on
@@ -80,7 +82,42 @@ function popWeather(data){
 
 // Function to display forecast to html
 function popForecast(data){
-  console.log(data)
+      // console.log(data);
+      // Construct array of sting to insert into html
+      var forecastArray = [
+          `${data[0].datetime.slice(0,10)}`,
+          `Temp: ${((data[0].temp*9/5)+32).toFixed(2)} F`,
+          `Wind: ${data[0].wind_spd.toFixed(2)} m/s`,
+          `Hum: ${data[0].rh} %`,
+          `${data[1].datetime.slice(0,10)}`,
+          `Temp: ${((data[1].temp*9/5)+32).toFixed(2)} F`,
+          `Wind: ${data[1].wind_spd.toFixed(2)} m/s`,
+          `Hum: ${data[1].rh} %`,
+          `${data[2].datetime.slice(0,10)}`,
+          `Temp: ${((data[2].temp*9/5)+32).toFixed(2)} F`,
+          `Wind: ${data[2].wind_spd.toFixed(2)} m/s`,
+          `Hum: ${data[2].rh} %`,
+          `${data[3].datetime.slice(0,10)}`,
+          `Temp: ${((data[3].temp*9/5)+32).toFixed(2)} F`,
+          `Wind: ${data[3].wind_spd.toFixed(2)} m/s`,
+          `Hum: ${data[3].rh} %`,
+          `${data[4].datetime.slice(0,10)}`,
+          `Temp: ${((data[4].temp*9/5)+32).toFixed(2)} F`,
+          `Wind: ${data[4].wind_spd.toFixed(2)} m/s`,
+          `Hum: ${data[4].rh} %`
+      ];
+  
+      // loop through array and insert into dom
+      // console.log(forecastCard)
+      for (var i=0;i<forecastArray.length;i++){
+        forecastCard.eq(i).text(forecastArray[i]);
+      }
+      // Change image of weather icon
+      for (var i =0; i<5;i++){
+        var icon =`assets/icons/${data[i].weather.icon}.png`
+        forecastIcon.eq(i).attr("src", icon)
+      }
+
 }
 
 

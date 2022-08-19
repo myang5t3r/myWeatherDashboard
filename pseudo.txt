@@ -20,6 +20,8 @@ Use Weather API to get weather
 
 Add UV index with color background (Done)
 
+
+
 Build 5 day forecast with api, 5 divs in each card
     -date field
     -icon image
